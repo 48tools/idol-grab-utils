@@ -1,0 +1,41 @@
+{
+  "name": "idol-grab-utils",
+  "version": "1.0.0",
+  "description": "抓取口袋48（聚聚房间/直播录播源信息）/微博/摩点众筹/摩点微打赏 工具集，提供HTTP接口 or Node.js Service",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbFlower/idol-grab-utils.git"
+  },
+  "keywords": [
+    "SNH48",
+    "口袋48",
+    "摩点"
+  ],
+  "author": "Flower Db",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dbFlower/idol-grab-utils/issues"
+  },
+  "homepage": "https://github.com/dbFlower/idol-grab-utils#readme",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
+    "eslint": "^4.7.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "express": "^4.16.2",
+    "express-promise-router": "^2.0.0",
+    "express-session": "^1.15.6",
+    "express-simple-route": "^1.6.1",
+    "fs": "0.0.1-security",
+    "helmet": "^3.12.0",
+    "morgan": "^1.9.0"
+  }
+}
