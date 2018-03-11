@@ -1,5 +1,4 @@
 const axios = require('axios')
-const { to } = require('await-to-js')
 const { POCKET48_WITH_TOKEN } = require('../api/config')
 const { IMEI, pocket48 } = require('../config')
 
@@ -21,19 +20,13 @@ const api = axios.create({
 
 
 const apis = {
-  _token: 'dviVGZt3Pni/bKZPnfoHd5fawqzc5kn4C3i+XjV9IdfcuqZZYZvEHHCxaD3fTVRfOY4eAF9ifbM=',
-  async login() {
-    const [err, resp] = await to(api.post(POCKET48_WITH_TOKEN.login, {
+  _token: '',
+  login() {
+    return api.post(POCKET48_WITH_TOKEN.login, {
       ...pocket48,
       latitude: 0,
       longitude: 0,
-    }))
-
-    if (!err) {
-      return resp.data
-    }
-
-    return err
+    })
   },
   roomMsg(roomId) {
     return api.post(POCKET48_WITH_TOKEN.room, {
@@ -52,10 +45,4 @@ Object.defineProperty(api.defaults.headers.common, 'token', {
   }
 })
 
-console.log('token', api.defaults.headers.common.token)
-
 module.exports = apis
-
-apis.login().then(function(it) {
-  console.log(it)
-})

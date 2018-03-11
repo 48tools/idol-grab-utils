@@ -35,7 +35,6 @@ module.exports = {
     return api.post(POCKET48.memberLive, mergeOptions(defaultMemberLiveOption(), config))
   },
   getLiveInfo(liveId = '') {
-    console.log(liveId)
     return api.post(POCKET48.liveDetail, {
       liveId
     })

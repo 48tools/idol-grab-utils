@@ -28,7 +28,7 @@ app.use('*', function(req, res, next) {
 
   let userToken = ''
 
-  if (req.get('token') ) {
+  if (req.get('token')) {
     userToken = req.get('token')
   } else if (req.body && req.body.token) {
     userToken = req.body.token
@@ -39,8 +39,9 @@ app.use('*', function(req, res, next) {
   if (userToken.toLowerCase() === token.toLowerCase()) return next()
 
   res.json({
-    status: 'failed',
-    reason: 'wrong token'
+    status: 403,
+    _code: 403,
+    message: 'token required',
   })
 })
 
