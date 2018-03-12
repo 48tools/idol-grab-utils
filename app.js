@@ -32,8 +32,10 @@ app.use('*', function(req, res, next) {
     userToken = req.get('token')
   } else if (req.body && req.body.token) {
     userToken = req.body.token
+    Reflect.deleteProperty(req.body, 'token')
   } else if (req.query.token) {
     userToken = req.query.token
+    Reflect.deleteProperty(req.query, 'token')
   }
 
   if (userToken.toLowerCase() === token.toLowerCase()) return next()

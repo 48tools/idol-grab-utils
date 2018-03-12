@@ -7,8 +7,12 @@ module.exports = {
   WEIBO: 'https://m.weibo.cn/api/container/getIndex', // GET
   WEIDASHANG: { // all POST
     product: wdsPrefix, // POST,
-    backer: `${wdsPrefix}backer_list`, // 支持者列表
+    backer: `${wdsPrefix}backer_list`, // 最新支持者列表
+    backerRank: `${wdsPrefix}backer_ranking_list`,
     comment: `${wdsPrefix}comment_list` // 评论列表
+  },
+  ZHONGCHOU: {
+
   },
   POCKET48: { // all POST
     openLive: `${liveApiPrefix}openLivePage`, // 公演

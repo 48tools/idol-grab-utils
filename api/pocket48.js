@@ -17,8 +17,6 @@ const api = axios.create({
   timeout: 2000,
 })
 
-
-
 const apis = {
   _token: '',
   login() {

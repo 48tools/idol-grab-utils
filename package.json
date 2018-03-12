@@ -43,6 +43,7 @@
     "loud-rejection": "^1.6.0",
     "lru-cache": "^4.1.2",
     "morgan": "^1.9.0",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "querystring": "^0.2.0"
   }
 }

@@ -31,6 +31,10 @@ const roomService = {
 
     if (data.status !== 200) {
       // wrong param
+      logError(data, {
+        api: 'Pocket48.login',
+        message: 'wrong account or password',
+      })
       console.log('wrong account or password')
       return false
     } else {
@@ -47,12 +51,12 @@ const roomService = {
     const [err, resp] = await to(roomApi.roomMsg(roomId))
 
     if (err) {
-      return {
+      return logError(err, {
         status: 500,
         message: err.message || '服务器发生错误',
         responseData: resp ? resp.data : {},
         api: 'Pocket48.roomMsg',
-      }
+      })
     }
 
     return {
