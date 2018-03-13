@@ -10,21 +10,23 @@ const api = axios.create({
     version: '2.1.5',
     client: 2,
     device: 'OnePlus 3',
-    host: 'orderapi.modian.com'
+    host: 'orderapi.modian.com',
   }
 })
 
 const defaultBackerOption = () => ({
+  pro_id: 0,
+  user_id: 0,
   page_index: 0,
   page_rows: 20,
   type: 'day', // day | amount ， 打卡榜 | 聚聚榜
-  pro_id: 0,
 })
 
 const defaultCommentOption = () => ({
+  pro_id: 0,
+  user_id: 0,
   page_index: 0,
   page_rows: 10,
-  pro_id: 0,
 })
 
 module.exports = {
@@ -39,13 +41,9 @@ module.exports = {
     }))
   },
   getBackerRankingList(proId, config = {}) {
-    const data = qs.stringify(mergeOptions(defaultBackerOption(), config, {
+    return api.post(WEIDASHANG.backerRank, qs.stringify(mergeOptions(defaultBackerOption(), config, {
       pro_id: proId,
-    }))
-
-    console.log(data)
-
-    return api.post(WEIDASHANG.backerRank, data)
+    })))
   },
   getCommentList(proId, config = {}) {
     return api.post(WEIDASHANG.comment, qs.stringify(mergeOptions(defaultCommentOption(), config, {

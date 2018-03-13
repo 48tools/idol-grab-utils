@@ -1,7 +1,9 @@
+const zhongchouPrefix = 'https://wds.modian.com/api/project/'
 const wdsPrefix = 'http://orderapi.modian.com/wds_v21_5/product/'
 const liveApiPrefix = 'https://plive.48.cn/livesystem/api/live/v1/'
 const pocketUserApiPrefix = 'https://puser.48.cn/usersystem/api/user/v1/'
 const pockerIMApiPrefix = 'https://pjuju.48.cn/imsystem/api/im/v1/'
+
 
 module.exports = {
   WEIBO: 'https://m.weibo.cn/api/container/getIndex', // GET
@@ -11,8 +13,10 @@ module.exports = {
     backerRank: `${wdsPrefix}backer_ranking_list`,
     comment: `${wdsPrefix}comment_list` // 评论列表
   },
-  ZHONGCHOU: {
-
+  ZHONGCHOU: { // all POST
+    orders: `${zhongchouPrefix}orders`,
+    backerRank: `${zhongchouPrefix}rankings`,
+    detail: `${zhongchouPrefix}detail`,
   },
   POCKET48: { // all POST
     openLive: `${liveApiPrefix}openLivePage`, // 公演
