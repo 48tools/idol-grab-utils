@@ -1,5 +1,6 @@
 const router = require('express-promise-router')()
 const wdsService = require('../services/weidashang')
+const zhongchouService = require('../services/zhongchou')
 const liveService = require('../services/live')
 const weiboService = require('../services/weibo')
 const roomService = require('../api/pocket48')
@@ -11,6 +12,17 @@ const getConfig = (req) => {
   return {}
 }
 
+router.use('/zhongchou/detail', async function(req, res) {
+  res.json(await zhongchouService.getDetail(getConfig(req).pro_id))
+})
+
+router.use('/zhongchou/:proId/rankings', async function(req, res) {
+  res.json(await zhongchouService.getRankings(req.params.proId, getConfig(req)))
+})
+
+router.use('/zhongchou/:proId/orders', async function(req, res) {
+  res.json(await zhongchouService.getOrders(req.params.proId, getConfig(req)))
+})
 
 router.use('/weidashang/:proId/backerList', async function (req, res) {
   res.json(await wdsService.getBackerList(req.params.proId))

@@ -10,7 +10,6 @@ const isProd = app.get('env') === 'production'
 
 const resolve = file => path.resolve(__dirname, file)
 
-
 const serve = (path, cache) => express.static(resolve(path), { // eslint-disable-line
   maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 })
@@ -24,6 +23,8 @@ if (isProd) {
 }
 
 app.use('*', function(req, res, next) {
+  res.setHeader('Cache-Control', 'no-cache')
+
   if (!token) return next()
 
   let userToken = ''
