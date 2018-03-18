@@ -2,7 +2,7 @@
   "name": "idol-grab-utils",
   "version": "1.0.0",
   "description": "抓取口袋48（聚聚房间/直播录播源信息）/微博/摩点众筹/摩点微打赏 工具集，提供HTTP接口 or Node.js Service",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "npm run test",
     "start": "node bin/www",
