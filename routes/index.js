@@ -3,7 +3,7 @@ const wdsService = require('../services/weidashang')
 const zhongchouService = require('../services/zhongchou')
 const liveService = require('../services/live')
 const weiboService = require('../services/weibo')
-const roomService = require('../api/pocket48')
+const roomService = require('../services/room')
 
 const getConfig = (req) => {
   if (req.method === 'POST') return req.body

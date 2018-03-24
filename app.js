@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
-const { token } = require('./config')
+const { token, pocket48 } = require('./config')
 
 const isProd = app.get('env') === 'production'
 
@@ -14,12 +14,16 @@ const serve = (path, cache) => express.static(resolve(path), { // eslint-disable
   maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 })
 
-app.set('trust proxy', 'loopback');
+app.set('trust proxy', 'loopback')
 
 if (isProd) {
   app.use(logger('combined'));
 } else {
   app.use(logger('dev'));
+}
+
+if (!pocket48.account || !pocket48.password) {
+  console.log('[Warning]: 口袋48账号密码未设置！口袋房间消息将无法获取。')
 }
 
 app.use('*', function(req, res, next) {
