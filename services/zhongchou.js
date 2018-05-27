@@ -3,6 +3,8 @@ const logError = require('../helper/log-error')
 const zhongchouApi = require('../api/modian.zhongchou')
 
 const service = Object.keys(zhongchouApi).reduce(function(service, key) {
+  if (key === 'wdsApi') return service
+
   service[key] = async function() {
     const [err, resp] = await to(zhongchouApi[key].apply(zhongchouApi[key], arguments))
 

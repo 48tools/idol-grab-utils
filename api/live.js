@@ -28,6 +28,7 @@ const defaultOpenLiveOption = () => ({
 
 
 module.exports = {
+  liveApi: api,
   getOpenLive(config = {}) {
     return api.post(POCKET48.openLive, mergeOptions(defaultOpenLiveOption(), config))
   },

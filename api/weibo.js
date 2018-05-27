@@ -1,4 +1,4 @@
-const axios = require('axios')
+const api = require('../index')
 // const axios = require('axios')
 const { WEIBO } = require('../api/config')
 
@@ -12,7 +12,7 @@ function getRealContainerId(raw) {
 
 module.exports = {
   getWeibo(containerId) {
-    return axios.get(WEIBO, {
+    return api.get(WEIBO, {
       params: {
         containerid: getRealContainerId(containerId)
       }

@@ -43,14 +43,14 @@ const roomService = {
       return true
     }
   },
-  async roomMsg(roomId) {
+  async roomMsg(roomId, config = {}) {
     if (!roomApi._token) {
       console.log('refreshing token')
       console.log('try login')
       await roomService.refreshToken()
     }
 
-    const [err, resp] = await to(roomApi.roomMsg(roomId))
+    const [err, resp] = await to(roomApi.roomMsg(roomId, config))
 
     if (err) {
       return logError(err, {

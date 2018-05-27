@@ -41,7 +41,7 @@ router.use('/weidashang/:proId', async function(req, res) {
 })
 
 router.use('/pocket/roomMsg/:roomId', async function(req, res) {
-  res.json(await roomService.roomMsg(req.params.roomId))
+  res.json(await roomService.roomMsg(req.params.roomId, getConfig(req)))
 })
 
 router.use('/pocket/memberLive', async function (req, res) {

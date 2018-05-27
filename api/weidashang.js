@@ -58,6 +58,7 @@ function parseMoxiId(resp) {
 }
 
 const apis = {
+  wdsApi: api,
   getProduct(proId) {
     return api.post(WEIDASHANG.product, qs.stringify({
       pro_id: proId,
