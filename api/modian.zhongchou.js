@@ -1,4 +1,4 @@
-const axios = require('../index')
+const axios = require('./index')
 const signForm = require('../helper/modian.sign')
 const qs = require('querystring')
 const mergeOptions = require('../helper/merge-options')
